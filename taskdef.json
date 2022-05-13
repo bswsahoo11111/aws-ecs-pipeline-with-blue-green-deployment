@@ -9,8 +9,8 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/bluegreen-task",
-          "awslogs-region": "us-west-2",
+          "awslogs-group": "/ecs/ecs-blue-green-cluster",
+          "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         }
       },
@@ -37,7 +37,7 @@
       "memoryReservation": 128,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "IMAGE1_NAME",
+      "image": "<ImageURI>",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -54,18 +54,18 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "blue-green-container"
+      "name": "ecs-blue-green-container"
     }
   ],
   "placementConstraints": [],
   "memory": "512",
-  "taskRoleArn": "arn:aws:iam::711610755347:role/ecsTaskExecutionRole",
+  "taskRoleArn": null,
   "compatibilities": [
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-west-2:711610755347:task-definition/bluegreen-task:1",
-  "family": "bluegreen-task",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:711610755347:task-definition/ecs-blue-green-cluster:1",
+  "family": "ecs-blue-green-cluster",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -96,12 +96,6 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.task-iam-role"
     },
     {
       "targetId": null,
